@@ -1,0 +1,51 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  min-height: 64px;
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.navbar > .inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  max-width: 220px;
+}
+
+
+.menu {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+
+.menu li a:hover {
+  color: #00796b;
+  text-decoration: underline;
+}
