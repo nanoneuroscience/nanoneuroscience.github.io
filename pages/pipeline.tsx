@@ -232,11 +232,78 @@ export default function Pipeline() {
           </div>
         </section>
 
-        <Link href="/science" passHref legacyBehavior>
-          <a style={{ color: '#b3416f', textDecoration: 'underline', fontWeight: 500, display: 'inline-block', padding: '0.5rem 1.2rem', borderRadius: '20px', background: 'none', border: 'none', cursor: 'pointer' }}>
-            Back to Science
-          </a>
-        </Link>
+        <div style={{
+          margin: '5rem auto',
+          maxWidth: '800px',
+          backgroundColor: '#f8f9fa',
+          borderRadius: '12px',
+          padding: '2.5rem',
+          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.05)',
+          border: '1px solid rgba(42, 93, 143, 0.1)',
+          position: 'relative',
+          overflow: 'hidden',
+          textAlign: 'center',
+          '::before': {
+            content: '""',
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            right: '0',
+            height: '4px',
+            background: 'linear-gradient(90deg, #2a5d8f, #4a8bc9)'
+          }
+        }}>
+          <h3 style={{
+            color: '#2a5d8f',
+            fontSize: '1.5rem',
+            marginBottom: '1rem',
+            fontWeight: 600
+          }}>Meet the Experts Behind Our Research</h3>
+          <p style={{
+            color: '#555',
+            fontSize: '1.1rem',
+            lineHeight: '1.6',
+            marginBottom: '2rem',
+            maxWidth: '600px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}>
+            Our team of leading scientists and researchers are pioneering new treatments for neurological eye diseases. 
+            Learn more about their expertise and vision for the future of eye care.
+          </p>
+          <Link href="/team" passHref legacyBehavior>
+            <a style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '0.9rem 2.2rem',
+              backgroundColor: '#2a5d8f',
+              color: 'white',
+              borderRadius: '30px',
+              fontWeight: 500,
+              fontSize: '1rem',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 4px 15px rgba(42, 93, 143, 0.2)',
+              '&:hover': {
+                backgroundColor: '#1d4a75',
+                transform: 'translateY(-2px)',
+                boxShadow: '0 6px 20px rgba(42, 93, 143, 0.3)'
+              },
+              '&:active': {
+                transform: 'translateY(0)'
+              }
+            }}>
+              <span style={{ marginRight: '8px' }}>View Our Team</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{
+                transition: 'transform 0.3s ease',
+                marginTop: '1px'
+              }}>
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </Link>
+        </div>
       </main>
     </Layout>
   );

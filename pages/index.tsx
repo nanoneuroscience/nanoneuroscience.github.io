@@ -1,7 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from "next/link";
 import Layout from '../components/Layout';
 import Head from 'next/head';
+
+// Add this CSS animation style
+const slideInAnimation = `
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .slide-in {
+    animation: slideInFromRight 0.8s ease-out forwards;
+  }
+`;
 
 const IndexPage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -9,6 +27,12 @@ const IndexPage = () => {
   const [glaucomaIndex, setGlaucomaIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [direction, setDirection] = useState<'next' | 'prev'>('next');
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Trigger the animation after the component mounts
+    setIsMounted(true);
+  }, []);
 
   const changeSlide = (newIndex: number, dir: 'next' | 'prev') => {
     if (isTransitioning) return;
@@ -68,50 +92,132 @@ const IndexPage = () => {
     <Layout title="Nano Neurosciences | Revolutionizing Brain-Computer Interfaces">
       <Head>
         <title>Nano Neurosciences</title>
+        <style>{slideInAnimation}</style>
       </Head>
       <section style={{
-        width: '100vw',
-        height: '100vh',
-        minHeight: '100vh',
-        background: 'url(/hero-bg.jpg) center/cover no-repeat',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         position: 'relative',
-        color: '#fff',
-        padding: 0,
-        boxShadow: '0 4px 24px 0 rgba(0,0,0,0.09)',
+        minHeight: '100vh',
+        width: '100%',
         overflow: 'hidden'
       }}>
+        {/* Hero image container - tall narrow rectangle on the left */}
         <div style={{
-          textAlign: 'center',
-          maxWidth: '90vw',
-          zIndex: 3
+          width: '33.33vw',
+          height: '100vh',
+          position: 'relative',
+          left: '150px',
+          background: 'url(/hero-bg.jpg) center/cover no-repeat',
+          boxShadow: '4px 0 12px rgba(0,0,0,0.1)',
+          borderBottomLeftRadius: '24px',
+          borderBottomRightRadius: '24px',
+          overflow: 'hidden'
+        }} />
+        
+        {/* Content container with blue background */}
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          padding: '4rem 2rem 4rem 8rem',
+          backgroundColor: 'transparent',
+          position: 'relative',
+          marginLeft: 'calc(33.33vw - 300px)'
         }}>
-          <h1 style={{
-            fontSize: '2.4rem',
-            fontWeight: 700,
-            letterSpacing: '-0.5px',
-            marginBottom: '1.2rem',
-            color: '#fff',
-            fontFamily: 'Inter, Segoe UI, Helvetica Neue, Arial, sans-serif',
-            textShadow: '0 2px 16px rgba(0,0,0,0.18)'
+          {/* Blue background that wraps just around the content */}
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '-150px',
+            right: 0,
+            transform: 'translateY(-50%)',
+            height: 'auto',
+            minHeight: '60vh',
+            backgroundColor: 'rgba(230, 240, 250, 0.9)',
+            borderTopLeftRadius: '24px',
+            borderBottomLeftRadius: '24px',
+            zIndex: 1,
+            overflow: 'hidden'
           }}>
-            Revolutionary nanomedicines to heal ophthalmological disorders
-          </h1>
-          <p style={{
-            fontSize: '1.25rem',
-            fontWeight: 400,
-            margin: 0,
-            color: '#fff',
-            fontFamily: 'Inter, Segoe UI, Helvetica Neue, Arial, sans-serif',
-            textShadow: '0 2px 16px rgba(0,0,0,0.13)',
-            maxWidth: '700px',
-            marginLeft: 'auto',
-            marginRight: 'auto'
+            {/* Gradient Overlay */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'linear-gradient(90deg, rgba(230, 240, 250, 1) 0%, rgba(230, 240, 250, 1) 25%, rgba(230, 240, 250, 0.98) 35%, rgba(230, 240, 250, 0.92) 45%, rgba(230, 240, 250, 0.8) 55%, rgba(230, 240, 250, 0.6) 67%, rgba(230, 240, 250, 0.4) 78%, rgba(230, 240, 250, 0.2) 88%, rgba(230, 240, 250, 0.1) 95%, rgba(230, 240, 250, 0) 100%)',
+              zIndex: 1
+            }} />
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: 'calc(50% + 300px)',
+              transform: 'translate(-50%, -50%)',
+              minWidth: '100%',
+              minHeight: '100%',
+              width: 'auto',
+              height: 'auto',
+              background: 'url(/images/hero-overlay.png) center/contain no-repeat',
+              opacity: 0.9,
+              zIndex: 0,
+              aspectRatio: '16/9' // Adjust this to match your image's aspect ratio
+            }} />
+          </div>
+          <div style={{
+            maxWidth: '600px',
+            color: '#1a1a1a',
+            textAlign: 'left',
+            position: 'relative',
+            zIndex: 2,
+            paddingLeft: '0',
+            marginLeft: '-210px',
+            opacity: isMounted ? 1 : 0,
+            transform: isMounted ? 'translateX(0)' : 'translateX(50px)',
+            transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
           }}>
-            We are a pre-clinical biotechnology start-up company developing novel lipopeptide sequences that self-assemble into nanostructures for sustained delivery of neuropeptides, ions and mRNAs.
-          </p>
+            <h1 style={{
+              fontSize: '2.4rem',
+              fontWeight: 700,
+              letterSpacing: '-0.5px',
+              marginBottom: '1.5rem',
+              color: '#1a1a1a',
+              fontFamily: 'Inter, Segoe UI, Helvetica Neue, Arial, sans-serif',
+              lineHeight: 1.2
+            }}>
+              Revolutionary nanomedicines to heal ophthalmological disorders
+            </h1>
+            <p style={{
+              fontSize: '1.1rem',
+              fontWeight: 400,
+              color: '#333',
+              fontFamily: 'Inter, Segoe UI, Helvetica Neue, Arial, sans-serif',
+              lineHeight: 1.6,
+              marginBottom: '2rem',
+              maxWidth: '100%'
+            }}>
+              We are a pre-clinical biotechnology start-up company developing novel lipopeptide sequences that self-assemble into nanostructures for sustained delivery of neuropeptides, ions and mRNAs.
+            </p>
+            <Link 
+              href="/mission" 
+              style={{
+                display: 'inline-block',
+                padding: '0.8rem 1.8rem',
+                backgroundColor: '#b3416f',
+                color: 'white',
+                textDecoration: 'none',
+                borderRadius: '4px',
+                fontWeight: 500,
+                transition: 'background-color 0.2s',
+                cursor: 'pointer'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#9d3b6e'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#b3416f'}
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
       </section>
 

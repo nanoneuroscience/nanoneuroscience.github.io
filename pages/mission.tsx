@@ -114,18 +114,32 @@ const MissionPage = () => {
         {/* Mission Content Section - Minimal List/Chart Style */}
         <section style={{
           background: '#fff',
-          padding: '3.5rem 1.5rem 2.5rem 1.5rem',
+          padding: '3.5rem 2.5rem 2.5rem 2.5rem',
           maxWidth: '900px',
           margin: '0 auto',
           borderRadius: '18px',
           boxShadow: '0 6px 32px rgba(0,0,0,0.04)',
         }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1a1a2e', marginBottom: '1.2rem' }}>
-            NanoNeurosciences: Redefining the Future of Eye Care
-          </h2>
-          <p style={{ fontSize: '1.13rem', color: '#333', marginBottom: '2.5rem', lineHeight: '1.7', maxWidth: '750px', marginLeft: 'auto', marginRight: 'auto' }}>
-            We’re pioneering regenerative nanomedicine for glaucoma—awakening the body’s natural healing pathways with biocompatible, biodegradable nanocarriers.
-          </p>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h2 style={{ 
+              fontSize: '2rem', 
+              fontWeight: 700, 
+              color: '#1a1a2e', 
+              marginBottom: '1.2rem',
+              padding: 0
+            }}>
+              Redefining the Future of Eye Care
+            </h2>
+            <p style={{ 
+              fontSize: '1.13rem', 
+              color: '#333', 
+              margin: '0 0 2.5rem 0', 
+              lineHeight: '1.7',
+              padding: 0
+            }}>
+              We’re pioneering regenerative nanomedicine for glaucoma—awakening the body’s natural healing pathways with biocompatible, biodegradable nanocarriers.
+            </p>
+          </div>
 
           <div style={{
             background: '#faf8fc',
@@ -139,41 +153,26 @@ const MissionPage = () => {
             marginLeft: 'auto',
             marginRight: 'auto',
           }}>
-            <h3 style={{ fontSize: '1.15rem', color: '#b3416f', fontWeight: 700, marginTop: 0, marginBottom: '1.1rem', letterSpacing: '0.01em' }}>Why Glaucoma? Why Now?</h3>
-            <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-              <li style={{
-                marginBottom: 0,
-                padding: '0.7em 0',
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '0.7em',
-                borderBottom: '1px solid #e3dbe7'
-              }}>
-                <span style={{ fontWeight: 700, color: '#b3416f', minWidth: 140 }}>Nature’s Perfect Testbed:</span>
-                <span style={{ color: '#222' }}>The eye’s unique accessibility makes it ideal to unleash the full potential of nanotherapeutics.</span>
-              </li>
-              <li style={{
-                marginBottom: 0,
-                padding: '0.7em 0',
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '0.7em',
-                borderBottom: '1px solid #e3dbe7'
-              }}>
-                <span style={{ fontWeight: 700, color: '#b3416f', minWidth: 140 }}>A Critical Gap:</span>
-                <span style={{ color: '#222' }}>Current treatments slow progression but can’t repair damaged cells. We focus on cellular regeneration.</span>
-              </li>
-              <li style={{
-                marginBottom: 0,
-                padding: '0.7em 0',
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '0.7em',
-              }}>
-                <span style={{ fontWeight: 700, color: '#b3416f', minWidth: 140 }}>A Growing, Unmet Need:</span>
-                <span style={{ color: '#222' }}>Millions are affected worldwide—demand for next-generation solutions is bigger than ever.</span>
-              </li>
-            </ul>
+            <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '0.7em' }}>
+              <div style={{ gridColumn: '1 / -1', marginBottom: '0.5rem' }}>
+                <h3 style={{ margin: 0, fontSize: '1.15rem', color: '#b3416f', fontWeight: 700, letterSpacing: '0.01em' }}>Why Glaucoma? Why Now?</h3>
+              </div>
+              
+              <div style={{ fontWeight: 700, color: '#b3416f', padding: '0.7em 0', minWidth: '160px', borderBottom: '1px solid #e3dbe7' }}>Nature's Perfect Testbed:</div>
+              <div style={{ color: '#222', padding: '0.7em 0', borderBottom: '1px solid #e3dbe7' }}>
+                The eye's unique accessibility makes it ideal to unleash the full potential of nanotherapeutics.
+              </div>
+              
+              <div style={{ fontWeight: 700, color: '#b3416f', padding: '0.7em 0', minWidth: '160px', borderBottom: '1px solid #e3dbe7' }}>A Critical Gap:</div>
+              <div style={{ color: '#222', padding: '0.7em 0', borderBottom: '1px solid #e3dbe7' }}>
+                Current treatments slow progression but can't repair damaged cells. We focus on cellular regeneration.
+              </div>
+              
+              <div style={{ fontWeight: 700, color: '#b3416f', padding: '0.7em 0', minWidth: '160px' }}>A Growing, Unmet Need:</div>
+              <div style={{ color: '#222', padding: '0.7em 0' }}>
+                Millions are affected worldwide—demand for next-generation solutions is bigger than ever.
+              </div>
+            </div>
           </div>
 
           <div style={{
@@ -188,33 +187,31 @@ const MissionPage = () => {
             marginLeft: 'auto',
             marginRight: 'auto',
           }}>
-            <h3 style={{ fontSize: '1.15rem', color: '#2a5d8f', fontWeight: 700, marginTop: 0, marginBottom: '1.1rem', letterSpacing: '0.01em' }}>Where Science Meets Innovation</h3>
-            <dl style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 2.2fr',
-              rowGap: '0',
-              columnGap: '1.2rem',
-              fontSize: '1.04rem',
-              color: '#1a1a2e',
-              alignItems: 'baseline',
-            }}>
-              <div style={{ display: 'contents' }}>
-                <dt style={{ fontWeight: 700, color: '#2a5d8f', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>Advanced Peptide Synthesis</dt>
-                <dd style={{ margin: 0, color: '#222', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>Custom-designed peptides power our nanomedicines.</dd>
+            <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '0.7em' }}>
+              <div style={{ gridColumn: '1 / -1', marginBottom: '0.5rem' }}>
+                <h3 style={{ margin: 0, fontSize: '1.15rem', color: '#2a5d8f', fontWeight: 700, letterSpacing: '0.01em' }}>Where Science Meets Innovation</h3>
               </div>
-              <div style={{ display: 'contents' }}>
-                <dt style={{ fontWeight: 700, color: '#2a5d8f', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>High-Precision Imaging</dt>
-                <dd style={{ margin: 0, color: '#222', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>Tracking therapies at the molecular level.</dd>
+              
+              <div style={{ fontWeight: 700, color: '#2a5d8f', padding: '0.7em 0', minWidth: '200px', borderBottom: '1px solid #dbe6f1' }}>Advanced Peptide Synthesis</div>
+              <div style={{ color: '#222', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>
+                Custom-designed peptides power our nanomedicines.
               </div>
-              <div style={{ display: 'contents' }}>
-                <dt style={{ fontWeight: 700, color: '#2a5d8f', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>Molecular Biology Tools</dt>
-                <dd style={{ margin: 0, color: '#222', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>Unlocking the cellular pathways that drive regeneration.</dd>
+              
+              <div style={{ fontWeight: 700, color: '#2a5d8f', padding: '0.7em 0', minWidth: '200px', borderBottom: '1px solid #dbe6f1' }}>High-Precision Imaging</div>
+              <div style={{ color: '#222', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>
+                Tracking therapies at the molecular level.
               </div>
-              <div style={{ display: 'contents' }}>
-                <dt style={{ fontWeight: 700, color: '#2a5d8f', padding: '0.7em 0' }}>Nanomaterial Characterization</dt>
-                <dd style={{ margin: 0, color: '#222', padding: '0.7em 0' }}>World-class facilities optimize our nanocarriers for strength, stability, and performance.</dd>
+              
+              <div style={{ fontWeight: 700, color: '#2a5d8f', padding: '0.7em 0', minWidth: '200px', borderBottom: '1px solid #dbe6f1' }}>Molecular Biology Tools</div>
+              <div style={{ color: '#222', padding: '0.7em 0', borderBottom: '1px solid #dbe6f1' }}>
+                Unlocking the cellular pathways that drive regeneration.
               </div>
-            </dl>
+              
+              <div style={{ fontWeight: 700, color: '#2a5d8f', padding: '0.7em 0', minWidth: '200px' }}>Nanomaterial Characterization</div>
+              <div style={{ color: '#222', padding: '0.7em 0' }}>
+                World-class facilities optimize our nanocarriers for strength, stability, and performance.
+              </div>
+            </div>
           </div>
 
           <div style={{

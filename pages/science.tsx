@@ -134,33 +134,57 @@ export default function Science() {
     marginRight: '12px'
   };
 
+  // Set to false to disable the background animation
+  const enableBackgroundAnimation = false;
+
   return (
     <Layout title="Our Science | Nano Neurosciences">
       <Head>
-        <style>{styles}</style>
+        <style dangerouslySetInnerHTML={{ __html: styles }} />
       </Head>
-      <main style={{ width: '100%' }}>
-        {/* Animated Hexagon Pattern */}
+      
+      {/* Hexagon Background Pattern - Currently disabled */}
+      {enableBackgroundAnimation && (
         <div className="hexagon-pattern">
-          {isMounted && fixedPositions.map(({ top, left, scale }, i) => (
-            <svg
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div 
               key={i}
-              className="hexagon visible"
-              viewBox="-10 -10 120 120"
-              style={{ top, left, transform: `scale(${scale})` }}
-            >
-              <path
-                d="M50 0 L95 25 L95 75 L50 100 L5 75 L5 25 Z"
-                fill="none"
-                stroke="#b3416f"
-                strokeWidth="2.5"
-                strokeLinecap="butt"
-                strokeLinejoin="round"
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
+              className="hexagon"
+              style={{
+                backgroundImage: 'url("/images/hexagon.svg")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                animationDelay: `${i * 2}s`,
+                ...(i < fixedPositions.length ? fixedPositions[i] : {})
+              }}
+            />
           ))}
         </div>
+      )}
+      <main style={{ width: '100%' }}>
+        {/* Hexagon Pattern - Currently disabled */}
+        {enableBackgroundAnimation && (
+          <div className="hexagon-pattern">
+            {isMounted && fixedPositions.map(({ top, left, scale }, i) => (
+              <svg
+                key={i}
+                className="hexagon visible"
+                viewBox="-10 -10 120 120"
+                style={{ top, left, transform: `scale(${scale})` }}
+              >
+                <path
+                  d="M50 0 L95 25 L95 75 L50 100 L5 75 L5 25 Z"
+                  fill="none"
+                  stroke="#b3416f"
+                  strokeWidth="2.5"
+                  strokeLinecap="butt"
+                  strokeLinejoin="round"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            ))}
+          </div>
+        )}
         {/* Hero Section */}
         <div 
           ref={heroRef}
