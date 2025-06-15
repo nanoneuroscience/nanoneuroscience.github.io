@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import { useState, useRef, useEffect } from 'react';
+import styles from '../styles/Pipeline.module.css';
 
 export default function Pipeline() {
   const diseases = [
@@ -232,27 +233,7 @@ export default function Pipeline() {
           </div>
         </section>
 
-        <div style={{
-          margin: '5rem auto',
-          maxWidth: '800px',
-          backgroundColor: '#f8f9fa',
-          borderRadius: '12px',
-          padding: '2.5rem',
-          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.05)',
-          border: '1px solid rgba(42, 93, 143, 0.1)',
-          position: 'relative',
-          overflow: 'hidden',
-          textAlign: 'center',
-          '::before': {
-            content: '""',
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            right: '0',
-            height: '4px',
-            background: 'linear-gradient(90deg, #2a5d8f, #4a8bc9)'
-          }
-        }}>
+        <div className={styles.pipelineContainer}>
           <h3 style={{
             color: '#2a5d8f',
             fontSize: '1.5rem',
@@ -272,28 +253,7 @@ export default function Pipeline() {
             Learn more about their expertise and vision for the future of eye care.
           </p>
           <Link href="/team" passHref legacyBehavior>
-            <a style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '0.9rem 2.2rem',
-              backgroundColor: '#2a5d8f',
-              color: 'white',
-              borderRadius: '30px',
-              fontWeight: 500,
-              fontSize: '1rem',
-              textDecoration: 'none',
-              transition: 'all 0.3s ease',
-              boxShadow: '0 4px 15px rgba(42, 93, 143, 0.2)',
-              '&:hover': {
-                backgroundColor: '#1d4a75',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 6px 20px rgba(42, 93, 143, 0.3)'
-              },
-              '&:active': {
-                transform: 'translateY(0)'
-              }
-            }}>
+            <a className={styles.viewTeamButton}>
               <span style={{ marginRight: '8px' }}>View Our Team</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{
                 transition: 'transform 0.3s ease',
